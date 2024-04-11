@@ -30,6 +30,11 @@ namespace WpfApp3
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (Birthday.SelectedDate == null || Name.Text == "" || Surname.Text == "")
+            {
+                MessageBox.Show("Пустое поле!");
+                return;
+            }
             Person employee = new Person(Name.Text, Surname.Text);
             DateTime dob = Birthday.SelectedDate.Value;
             MessageBox.Show($"Имя: {Person.FirstName}\nФамилия: {Person.LastName}\nВозраст: {employee.Age(dob)}");
